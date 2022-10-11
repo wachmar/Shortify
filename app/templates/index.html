@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="text-center mb-2">{% block title %} Shorten URLs with Shortify {% endblock %}</h1>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <form method="post">
+                {{ form.hidden_tag() }}
+            <div class="form mb-2">
+                {{ form.url.label }}
+                {{ form.url(class_="form-control", required="required") }}
+            </div>
+            <div class="form mb-2">
+                {{ form.custom_id.label }}
+                {{ form.custom_id(class_="form-control") }}
+            </div>
+
+            <div class="form-group text-center">
+                {{ form.submit(class_="btn btn-primary") }}
+            </div>
+            </form>
+
+            {% if url_short_full %}
+            <hr>
+            <span><a href="{{ url_short_full }}" target="_blank">{{ url_short_full }}</a></span>
+            {% endif %}
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+{% endblock %}

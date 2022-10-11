@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+  <h1>Here is a list of all shortened urls:</h1>
+  <p>This could be an admin view i.e.</p>
+  <ul>
+    {% for url in urls  %}
+    <li>{{url}}</li>
+    {% endfor %}
+  </ul>
+
+</div>
+{% endblock %}
